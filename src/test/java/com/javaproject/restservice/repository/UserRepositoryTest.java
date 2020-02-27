@@ -1,6 +1,7 @@
 package com.javaproject.restservice.repository;
 
 import static com.javaproject.restservice.entity.User.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.javaproject.restservice.entity.*;
@@ -20,24 +21,17 @@ import java.util.*;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 class UserRepositoryTest {
-    @Autowired
-    private TestEntityManager entityManager;
-    @Autowired
-    private UserRepository userRepository;
 
-    @Before
-    public void init(){
-    }
+    @Autowired
+    private UserRepository repository;
+
+    User user;
+    List<User> users;
 
     @Test
-    public void whenFindByName_thenReturnUser(){
-        User kelly = new User();
-        entityManager.persist(kelly);
-        entityManager.flush();
-
-        List<User> user = userRepository.findByName(@Param("Kelly"))
-
+    public void whenDeleteByIdFromRepository_thenDeletingShouldBeSuccessful() {
+        repository.deleteById(user.getUsername());
+        assertThat(repository.findById(user)).isNotPresent();
 
     }
-
 }
