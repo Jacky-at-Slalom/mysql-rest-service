@@ -1,16 +1,14 @@
 package com.javaproject.restservice.entity;
 
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 
 @Entity
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
     private String username;
     private String password;
     private String name;
