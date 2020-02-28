@@ -13,3 +13,7 @@ import java.util.*;
 @RestResource(exported = false)
 public interface UserRepository extends JpaRepository<User, String> {
 }
+
+//@RestResource(exported = false)
+//public interface UserRepository extends CrudRepository<User, Integer> {
+//}

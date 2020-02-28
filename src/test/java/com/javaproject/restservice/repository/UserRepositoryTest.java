@@ -31,7 +31,7 @@ class UserRepositoryTest {
     @Test
     public void whenDeleteByIdFromRepository_thenDeletingShouldBeSuccessful() {
         repository.deleteById(user.getUsername());
-        assertThat(repository.findById(user)).isNotPresent();
+        assertThat(repository.findById("Steve")).isNotPresent();
 
     }
 }
